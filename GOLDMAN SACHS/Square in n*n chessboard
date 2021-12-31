@@ -1,0 +1,14 @@
+
+//PUZZLE QUESTION
+
+class Solution {
+  public:
+    long long squaresInChessBoard(long long n) {
+       long long res=0;
+       while(n>=1){
+           res=res+n*n;
+           n--;
+       }
+       return res;
+    }
+};
