@@ -1,0 +1,31 @@
+LINK TO THE QUESTION :=> https://practice.geeksforgeeks.org/problems/print-anagrams-together/1/#
+
+
+
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& nums) {
+    vector<string>v;
+    vector<vector<string>>ans;
+      for(int i=0;i<nums.size();i++){
+          v.push_back(nums[i]);
+      }
+      for(int i=0;i<nums.size();i++){
+          sort(v[i].begin(),v[i].end());
+      }
+      unordered_map<string,vector<int>>mp;
+      for(int i=0;i<v.size();i++){
+          mp[v[i]].push_back(i);
+      }
+
+      for(auto i=mp.begin();i!=mp.end();i++){
+          vector<string>v2;
+          vector<int>v1=i->second;
+          for(int j=0;j<v1.size();j++){
+              v2.push_back(nums[v1[j]]);
+          }
+          ans.push_back(v2);
+      }
+      return ans;
+    }
+};
