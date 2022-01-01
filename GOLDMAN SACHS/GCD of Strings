@@ -1,0 +1,27 @@
+PROBLEM ::  https://leetcode.com/problems/greatest-common-divisor-of-strings/submissions/
+
+
+
+class Solution {
+public:
+    
+    //NICE QUESTION...
+    string gcdOfStrings(string str1, string str2) {
+       int n=str1.size();
+        int m=str2.size();
+        if(n==m){
+            if(str1==str2)
+                return str1;
+            else
+                return "";
+        }
+       if(n>m){
+           if(str1.substr(0,m)==str2){
+               return gcdOfStrings(str1.substr(m),str2);
+           }
+           else
+               return "";
+       }
+        return gcdOfStrings(str2,str1);
+    }
+};
