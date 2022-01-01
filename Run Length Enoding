@@ -1,0 +1,23 @@
+GFG EASY PROBLEM
+
+
+
+string encode(string src)
+{ 
+  char c=src[0];
+  int count=0;
+  string s;
+  for(int i=0;i<src.size();i++){
+      if(c==src[i])
+       count++;
+       else
+       {
+           s=s+c+to_string(count);
+           count=1;
+           c=src[i];
+       }
+  }
+  s=s+c+to_string(count);
+  return s;
+}     
+ 
