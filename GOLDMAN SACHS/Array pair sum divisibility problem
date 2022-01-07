@@ -1,19 +1,30 @@
-
-
-bool canPair(vector<int> arr, int k) {
-       unordered_map<int , int> m;
-       
-       for (int i = 0 ; i < arr.size() ; i++){
-           m[((arr[i]%k)+k)%k]++;
-       }
-       
-       if (m[0]%2 != 0)
-        return false;
-       
-       for (int i = 1 ; i<k ; i++){
-           if (m[i] != m[k-i])
-               return false;
-       }
-       return true;
+  ONE OF THE BEST PROBLEM...LEETCODE
+  
+  
+ class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        unordered_map<int,int>mp;
+        for(auto x:arr){
+            int rem=x%k;
+            rem=(rem+k)%k;
+            mp[rem]++;
+        }
+        for(auto x:arr){
+            x=x%k;
+            x=(x+k)%k;//DONE TO DEAL WITH THE NEGATIVE NUMBERS..
+            if(x==0){
+                if(mp[x]%2!=0)
+                    return false;
+            }
+            else if(2*x==k){
+                if(mp[x]%2!=0)
+                    return false;
+            }
+            else if(mp[x]!=mp[k-x])
+                return false;
+            
+        }
+        return true;
     }
 };
